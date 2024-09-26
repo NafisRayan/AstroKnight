@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>ImBatman - AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        #chatbox {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: scroll;
+            background-color: white;
+        }
+        #userInput {
+            width: calc(100% - 22px);
+            padding: 10px;
+        }
+        #sendBtn {
+            padding: 10px 15px;
+        }
+    </style>
 </head>
 <body class="bg-black text-white">
     <!-- Navigation Bar -->
@@ -24,24 +43,76 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <section class="bg-black min-h-screen pt-20">
-        <div class="container mx-auto text-center">
-            <h1 class="text-5xl font-bold text-indigo-500 mb-6">AI Chatbot</h1>
-            <p class="text-xl mb-10">Chat with our AI to explore space topics.</p>
-            <div class="bg-gray-800 rounded-lg p-6 w-3/4 mx-auto shadow-lg">
-                <p class="text-lg">How can I assist you today?</p>
-                <input type="text" class="mt-4 p-2 rounded-lg w-full" placeholder="Type your question here...">
-                <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition duration-300">
-                    Ask
-                </button>
+<!-- Main Content -->
+<section class="bg-black min-h-screen pt-20">
+    <div class="container mx-auto text-center px-4">
+        <h1 class="text-5xl font-bold text-indigo-500 mb-6">AI Chatbot</h1>
+        <p class="text-xl mb-10">Chat with our AI to explore space topics.</p>
+        <div class="flex flex-col w-full max-w-3xl mx-auto bg-gray-800 rounded-lg p-4">
+            <div id="chatbox" class="flex-1 overflow-y-auto mb-4 p-20 rounded-lg" style="max-height: 400px; background-color: #4B5563;"> 
+                <!-- Chat messages will be appended here -->
+            </div>
+            <div class="flex flex-col md:flex-row w-full">
+                <input type="text" id="userInput" placeholder="Type your message here..." class="p-2 rounded-lg flex-grow mr-0 md:mr-2 mb-2 md:mb-0 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300" />
+                <button id="sendBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition duration-300">Send</button>
             </div>
         </div>
-    </section>
+        
+    </div>
+</section>
+
+
 
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-gray-900 to-black py-6 text-center">
         <p class="text-sm">© 2024 ImBatman. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        // Function to append message to chatbox
+        function appendMessage(role, text) {
+            const message = document.createElement('div');
+            message.textContent = role + ': ' + text;
+            chatbox.appendChild(message);
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll to bottom
+        }
+
+        // Send message to the server and get response
+        async function sendMessage() {
+            const userMessage = userInput.value;
+            if (!userMessage) return;
+
+            appendMessage('You', userMessage);
+            userInput.value = '';
+
+            // Send request to the server
+            const response = await fetch('http://localhost:3000/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                appendMessage('AI', data.reply);
+            } else {
+                appendMessage('AI', 'Error: Unable to get response.');
+            }
+        }
+
+        // Event listeners
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
 </body>
 </html>
