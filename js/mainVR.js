@@ -30,7 +30,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // GLTF model folders
 const modelsFolders = [
-  // { folder: 'surface_terrain_model', scale: [50, 50, 50], position: [270,85,-500], rotation: [-.04, Math.PI, 0], animation: false },
+  { folder: 'mars_surface_terrain_model', scale: [50, 50, 50], position: [270,85,-500], rotation: [-.04, Math.PI, 0], animation: false },
   { folder: 'curiosity_rover', scale: [2.5, 2.5, 2.5], position: [-2, -4, -25], rotation: [0, 0, 0], animation: true },
   { folder: 'astronaut', scale: [2, 2, 2], position: [-12, -4.5, 2], rotation: [0, -250.8, 0], animation: true },
   { folder: 'perseverance_mars_rover', scale: [2, 2, 2], position: [-18, -3, -12], rotation: [0, 0, 0], animation: false },
@@ -77,77 +77,6 @@ modelsFolders.forEach((modelData) => {
     }
   );
 });
-
-
-
-
-// At the top of your main.js file, add this function
-function getPlanetNameFromURL() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('planet');
-}
-
-// Then, inside your initialization code or wherever appropriate, call this function
-const planetName = getPlanetNameFromURL();
-console.log(`Selected Planet: ${planetName}`);
-
-// Mercury
-// Venus
-// Earth
-// Mars
-// Jupiter
-// Saturn
-// Uranus
-// Neptune
-
-// Terrain model loader
-function loadSingleModel(folderName, scale = [1, 1, 1], position = [0, 0, 0], rotation = [0, 0, 0], animation = false) {
-  const loader = new GLTFLoader();
-  
-  return new Promise((resolve, reject) => {
-    loader.load(
-      `models/${folderName}/${planetName}.gltf`,
-      (gltf) => {
-        const model = gltf.scene;
-        
-        // Set rotation
-        model.rotation.set(...rotation);
-
-        // Set scale and position
-        model.scale.set(...scale);
-        model.position.set(...position);
-
-        // Handle animation if needed
-        if (animation) {
-          model.mixer = new THREE.AnimationMixer(model);
-          model.mixer.clipAction(gltf.animations[0]).play();
-        }
-
-        // Add the model to the scene
-        scene.add(model);
-        
-        models.push(model);
-        resolve(model);
-      },
-      undefined,
-      (error) => reject(error)
-    );
-  });
-}
-
-async function loadAndAnimateModel(folderName, scale, position, rotation, animation) {
-  try {
-    const model = await loadSingleModel(folderName, scale, position, rotation, animation);
-    console.log(`Model loaded successfully: ${folderName}`);
-    animateModel(model);
-  } catch (error) {
-    console.error(`Error loading model ${folderName}:`, error);
-  }
-}
-
-// Usage example
-loadAndAnimateModel('surface_terrain_model', [50, 50, 50], [270,85,-500], [-.04, Math.PI, 0], false);
-
 
 // Add ambient lighting to the scene
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
