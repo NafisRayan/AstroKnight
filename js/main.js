@@ -199,4 +199,7 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// console log camera position
+console.log('camera position', camera.position);
+
 animate(); // Start the animation loop
