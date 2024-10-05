@@ -92,7 +92,7 @@ async function loadAndAnimateModel(folderName) {
     position = [0, 0, 0];      // Position it lower
     animation = true;
   } else if (folderName === "saturn") {
-    scale = [.01, .01, .01];  // Larger planet
+    scale = [.07, .07, .07];  // Larger planet
     position = [0, 0, 0];   // Offset to the left     
     animation = false;
   } else if (folderName === "uranus") {
