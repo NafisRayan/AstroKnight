@@ -79,7 +79,7 @@ cd AstroKnight-ImBatman
 npm install
 
 
-5. Install Python dependencies (if using the Python backend):
+5. Install Python dependencies:
 pip install -r requirements.txt
 
 
@@ -91,7 +91,7 @@ node server.js
 
 2. Open a web browser and navigate to `http://localhost:3000`
 
-3. If using the Python backend for feedback management:
+3. Using the Python backend for feedback management:
 python app.py
 
 
