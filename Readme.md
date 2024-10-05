@@ -40,12 +40,11 @@ AstroKnight-ImBatman is a web-based application that aims to deepen users' under
 - Backend:
   - Node.js
   - Express.js as the web application framework
+  - Python Flask
 
 - Database:
   - SQLite (for storing user feedback)
   - NASA's public API for accessing space data (text and images)
-
-
 
 - AI:
   - Google's Generative AI API for the chatbot
