@@ -81,12 +81,10 @@ pip install -r requirements.txt
 1. Start the Node.js server:
 node server.js
 
-2. Open a web browser and navigate to `http://localhost:3000`
-
-3. Using the Python backend for feedback management:
+2. Using the Python backend for feedback management:
 python app.py
 
-4. Use Live Server or a similar tool to run the HTML files (starting  with index.html) for a more interactive experience.
+3. Use Live Server or a similar tool to run the HTML files (starting  with index.html) for a more interactive experience.
 
 
 ## How It Works
