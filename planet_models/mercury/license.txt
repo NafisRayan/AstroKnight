@@ -1,0 +1,11 @@
+Model Information:
+* title:	planet mercury
+* source:	https://sketchfab.com/3d-models/planet-mercury-bfd0a0be72a948989306ab2205146087
+* author:	Topson_Noble (https://sketchfab.com/Topson_Noble)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "planet mercury" (https://sketchfab.com/3d-models/planet-mercury-bfd0a0be72a948989306ab2205146087) by Topson_Noble (https://sketchfab.com/Topson_Noble) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
