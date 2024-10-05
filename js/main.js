@@ -110,7 +110,7 @@ function loadSingleModel(folderName, scale = [1, 1, 1], position = [0, 0, 0], ro
   
   return new Promise((resolve, reject) => {
     loader.load(
-      `models/${folderName}/${planetName}.gltf`,
+      `terrein_models/${folderName}/${planetName}.gltf`,
       (gltf) => {
         const model = gltf.scene;
         

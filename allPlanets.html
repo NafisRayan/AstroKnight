@@ -46,6 +46,7 @@
                     <li><strong>Orbit Period:</strong> 88 Earth days</li>
                     <li><strong>Surface Temperature:</strong> -173°C to 427°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('mercury')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Venus -->
@@ -60,6 +61,7 @@
                     <li><strong>Orbit Period:</strong> 225 Earth days</li>
                     <li><strong>Surface Temperature:</strong> About 467°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('venus')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Earth -->
@@ -74,6 +76,7 @@
                     <li><strong>Orbit Period:</strong> 365.25 days</li>
                     <li><strong>Surface Temperature:</strong> -88°C to 58°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('earth')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Mars -->
@@ -88,6 +91,7 @@
                     <li><strong>Orbit Period:</strong> 687 Earth days</li>
                     <li><strong>Surface Temperature:</strong> -125°C to 20°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('mars')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Jupiter -->
@@ -102,6 +106,7 @@
                     <li><strong>Orbit Period:</strong> 11.86 Earth years</li>
                     <li><strong>Surface Temperature:</strong> -145°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('jupiter')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Saturn -->
@@ -116,6 +121,7 @@
                     <li><strong>Orbit Period:</strong> 29.5 Earth years</li>
                     <li><strong>Surface Temperature:</strong> -178°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('saturn')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Uranus -->
@@ -130,6 +136,7 @@
                     <li><strong>Orbit Period:</strong> 84 Earth years</li>
                     <li><strong>Surface Temperature:</strong> -224°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('uranus')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
 
             <!-- Neptune -->
@@ -144,8 +151,15 @@
                     <li><strong>Orbit Period:</strong> 165 Earth years</li>
                     <li><strong>Surface Temperature:</strong> -214°C</li>
                 </ul>
+                <button onclick="navigateToPlanet('neptune')" class="mt-4 px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Explore on Foot</button>
             </div>
         </div>
     </main>
+
+    <script>
+        function navigateToPlanet(planetName) {
+            window.location.href = `exploration.html?planet=${planetName}`;
+        }
+    </script>
 </body>
 </html>
